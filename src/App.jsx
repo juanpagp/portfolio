@@ -133,6 +133,74 @@ function ProjectRow({ project, index, t }) {
   );
 }
 
+
+const ASCII_LOGO = String.raw
+`      _----------_,
+    ,"__         _-:, 
+   /    ""--_--""...:\
+  /         |.........\
+ /          |..........\
+/,         _'_........./:
+! -,    _-"   "-_... ,;;:
+\   -_-"         "-_/;;;;
+ \   \             /;;;;'
+  \   \           /;;;;
+   '.  \         /;;;'
+     "-_\_______/;;'
+`;
+
+
+const SCRIPT_LINES = ["#!/bin/sh", "whoami", "myfetch"];
+
+function Hero({ t }) {
+  const rows = [
+    ["role", t.ui.profileRole, t.ui.role],
+    ["based", t.ui.profileLocation, t.ui.location],
+    ["stack", t.ui.profileStack, t.ui.stack],
+    ["focus", t.ui.profileFocus, t.ui.focus],
+    ["languages", t.ui.profileLanguages, t.ui.languages],
+  ];
+  return (
+    <div id="top" className="stage">
+      <div className="kitty" role="group" aria-label={t.ui.terminalLabel}>
+        <div className="kitty-log" aria-hidden="true">
+          <p className="cmd"><span className="ps">{t.ui.hostName}</span> <span className="dir">~/dev</span> <span className="sig">$</span> cat {t.ui.scriptName}</p>
+          <ol className="bat">
+            {SCRIPT_LINES.map((line, i) => (
+              <li key={line}><span className="ln">{i + 1}</span><span className={i === 0 ? "cm" : "fn"}>{line}</span></li>
+            ))}
+          </ol>
+          <p className="cmd"><span className="ps">{t.ui.hostName}</span> <span className="dir">~/dev</span> <span className="sig">$</span> sh {t.ui.scriptName}</p>
+        </div>
+        <div className="panes">
+          <section className="pane pane-who" aria-labelledby="hero-title">
+            <p className="pane-t" aria-hidden="true">{t.ui.paneWhoami}</p>
+            <p className="intro"><span aria-hidden="true">▸ </span>{t.hero.intro} {t.site.name}.</p>
+            <h1 id="hero-title">{t.hero.title}</h1>
+            <p className="lede">{t.site.seoDescription}</p>
+            <div className="cta">
+              <a className="btn p" href="#projects">{t.nav.projects} →</a>
+              <a className="btn s" href="#contact">{t.nav.contact}</a>
+            </div>
+          </section>
+          <section className="pane pane-fetch" aria-label={t.ui.profileTitle}>
+            <p className="pane-t" aria-hidden="true">{t.ui.paneMyfetch}</p>
+            <pre className="ascii" aria-hidden="true">{ASCII_LOGO}</pre>
+            <p className="host"><b>juanpa</b><span aria-hidden="true">@</span><b>arch</b></p>
+            <p className="sys-t">{t.ui.profileTitle}</p>
+            <dl className="sys">
+              {rows.map(([key, value, label]) => (
+                <div key={key}><dt>{label}</dt><dd>{value}</dd></div>
+              ))}
+            </dl>
+            <div className="swatches" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const t = translations[language];
@@ -209,26 +277,7 @@ function App() {
 
       <main id="main">
         <div className="wrap">
-          <div id="top" className="hero">
-            <div>
-              <p className="prompt"><b>juanpa@arch</b> ~/dev $ {t.hero.greeting} {t.hero.greeting_emoji}</p>
-              <h1>{t.hero.title}</h1>
-              <p className="lede"><strong>{t.hero.intro} {t.site.name}.</strong> {t.site.seoDescription}</p>
-              <div className="cta">
-                <a className="btn p" href="#projects">{t.nav.projects} →</a>
-                <a className="btn s" href="#contact">{t.nav.contact}</a>
-              </div>
-            </div>
-            <div>
-              <p className="sys-t">{t.ui.profileTitle}</p>
-              <dl className="sys">
-                <div><dt>{t.ui.role}</dt><dd>{t.ui.profileRole}</dd></div>
-                <div><dt>{t.ui.location}</dt><dd>{t.ui.profileLocation}</dd></div>
-                <div><dt>{t.ui.focus}</dt><dd>{t.ui.profileFocus}</dd></div>
-                <div><dt>{t.ui.languages}</dt><dd>{t.ui.profileLanguages}</dd></div>
-              </dl>
-            </div>
-          </div>
+          <Hero t={t} />
 
           <section id="projects" aria-labelledby="projects-heading">
             <SectionHeading id="projects" title={t.projects.title} subtitle={t.ui.selectedWork} />
@@ -246,7 +295,7 @@ function App() {
                 <dl className="goals">
                   <div><dt>{t.ui.projectCategory}</dt><dd>{featuredProject.category}</dd></div>
                   <div><dt>{t.ui.projectStatus}</dt><dd>{featuredProject.status}</dd></div>
-                  <div><dt>{t.ui.technologies}</dt><dd>{featuredProject.skills.join(" · ")}</dd></div>
+                  <div><dt>{t.ui.technologies}</dt><dd>{featuredProject.skills.join("")}</dd></div>
                 </dl>
               </div>
             </article>

@@ -9,9 +9,9 @@
   "location": "ubicación",
   "focus": "enfoque",
   "languages": "idiomas",
-  "profileRole": "Desarrollador de software",
-  "profileLocation": "Sevilla, España",
-  "profileFocus": "Sistemas · Herramientas para desarrolladores",
+  "profileRole": "Desarrollador junior",
+  "profileLocation": "España",
+  "profileFocus": "Compiladores · Gráficos",
   "profileLanguages": "ES nativo · EN C1",
   "selectedWork": "trabajo seleccionado",
   "personalWork": "Proyectos personales",
@@ -27,5 +27,12 @@
   "projectStatus": "estado",
   "technologies": "tecnologías",
   "projectMetaTitle": "proyecto.meta",
-  "projectTechnologies": "tecnologías"
+  "projectTechnologies": "tecnologías",
+  "stack": "stack",
+  "profileStack": "Java - C# - Python - C++",
+  "terminalLabel": "Ventana de terminal ejecutando hero.sh: salida de whoami a la izquierda, perfil del sistema con myfetch a la derecha",
+  "paneWhoami": "whoami",
+  "paneMyfetch": "myfetch",
+  "hostName": "juanpa@arch",
+  "scriptName": "hero.sh"
 }

@@ -30,27 +30,27 @@
   "skills": [
     {
       "name": "English",
-      "experienceYears": " · C1"
+      "experienceYears": " C1"
     },
     {
       "name": "C++",
-      "experienceYears": " · Personal projects"
+      "experienceYears": "Personal projects"
     },
     {
       "name": "Java",
-      "experienceYears": " · 2+ years"
+      "experienceYears": "2+ years"
     },
     {
       "name": "Python",
-      "experienceYears": " · 3+ years"
+      "experienceYears": "3+ years"
     },
     {
       "name": "C#",
-      "experienceYears": " · 3+ years"
+      "experienceYears": "3+ years"
     },
     {
       "name": "Linux",
-      "experienceYears": " · 3+ years"
+      "experienceYears": "3+ years"
     }
   ],
   "projects": {
