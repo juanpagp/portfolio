@@ -1,0 +1,216 @@
+{
+  "site": {
+    "name": "Juanpa",
+    "title": "Software Developer | Systems & Developer Tools",
+    "description": "Software developer from Seville, Spain, focused on systems programming, developer tools, and practical software.",
+    "seoTitle": "Juan Pablo Garrido | Software Developer — Systems, C++ & Java",
+    "seoDescription": "Software developer from Seville, Spain, with professional experience building internal business tools and personal projects in C++, Java, Python, compilers, and graphics.",
+    "keywords": "software developer, systems programming, C++, Java, Python, compiler, developer tools, Seville, Spain",
+    "ogTitle": "Juanpa | Software Developer",
+    "ogDescription": "Building practical software and exploring systems programming, compilers, developer tools, and graphics."
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "whoami",
+    "greeting_emoji": "",
+    "intro": "I'm",
+    "title": "Building software from the application layer down to the machine."
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a software developer from Seville, Spain, with hands-on experience building internal business software. I enjoy solving practical problems and exploring systems programming, compilers, developer tools, graphics, and game-engine development. I'm currently looking for a software development role, preferably remote, where I can contribute to a team and keep growing through real engineering work."  },
+  "skills_title": "Skills",
+  "skills": [
+    {
+      "name": "English",
+      "experienceYears": " · C1"
+    },
+    {
+      "name": "C++",
+      "experienceYears": " · Personal projects"
+    },
+    {
+      "name": "Java",
+      "experienceYears": " · 2+ years"
+    },
+    {
+      "name": "Python",
+      "experienceYears": " · 3+ years"
+    },
+    {
+      "name": "C#",
+      "experienceYears": " · 3+ years"
+    },
+    {
+      "name": "Linux",
+      "experienceYears": " · 3+ years"
+    }
+  ],
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "category": "Personal",
+        "status": "In development",
+        "name": "Nebula",
+        "description": "An experimental statically typed systems programming language with a compiler written in Java. The project explores parsing with ANTLR, semantic analysis, AST transformations, and LLVM-based native code generation. Its language features and compile-time memory-management analysis are still evolving, so it is an ongoing project rather than a production-ready compiler.",
+        "skills": [
+          "Java",
+          "LLVM",
+          "ANTLR",
+          "Compiler design"
+        ],
+        "link": "https://github.com/nebula-language/nebula"
+      },
+      {
+        "category": "Personal",
+        "status": "In development",
+        "name": "catlr",
+        "description": "A C++17 command-line utility for exploring and reviewing codebases. It prints directory trees and file contents, supports include and exclude filters, reads .gitignore exclusion patterns, and can fall back to native implementations when optional external tools are unavailable. Built to make code review and project inspection less noisy.",
+        "skills": [
+          "C++17",
+          "Filesystem",
+          "CLI tools"
+        ],
+        "link": "https://github.com/juanpagp/catlr"
+      },
+      {
+        "category": "Personal",
+        "status": "Experimental",
+        "name": "Arcane",
+        "description": "An experimental 3D engine built in Java with LWJGL. It includes engine components for rendering, meshes, materials, textures, scenes, input, and an entity-component architecture. The project explores real-time graphics and the structure of a game engine.",
+        "skills": [
+          "Java",
+          "OpenGL",
+          "LWJGL",
+          "GLSL"
+        ],
+        "link": "https://github.com/juanpagp/Arcane"
+      },
+      {
+        "category": "Professional",
+        "status": "Completed",
+        "name": "ENCASA App Suite",
+        "description": "A suite of three internal applications developed to support incident tracking, supplier follow-up, and quality-control workflows. The tools integrated existing Excel-based company data and exposed selected information through a REST API. Source code is private because it relates to internal company systems.",
+        "skills": [
+          "PHP",
+          "AutoHotkey",
+          "VBA",
+          "REST APIs"
+        ],
+        "link": "NotPublic"
+      },
+      {
+        "category": "Professional",
+        "status": "Completed",
+        "name": "PPE Distribution Automation",
+        "description": "A local web application built to streamline the distribution of personal protective equipment (PPE). It generates PDF records and digitally signs them, reducing manual steps in an internal business process. Source code is private because it relates to company workflows.",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "PDF generation"
+        ],
+        "link": "NotPublic"
+      },
+      {
+        "category": "Personal",
+        "status": "Completed",
+        "name": "CRIS",
+        "description": "A Python tool that embeds files in PNG images and extracts them later. It uses RSA to protect the seed used to shuffle data placement. The project explores steganography and cryptography and is intended for learning, not production-grade security.",
+        "skills": [
+          "Python",
+          "Cryptography",
+          "Steganography"
+        ],
+        "link": "https://github.com/juanpagp/CRIS"
+      },
+      {
+        "category": "Personal",
+        "status": "Experimental",
+        "name": "Minocraft",
+        "description": "A Minecraft-inspired voxel project built in Java with LWJGL. It explores a block-based world, rendering, and game-loop mechanics.",
+        "skills": [
+          "Java",
+          "OpenGL",
+          "LWJGL"
+        ],
+        "link": "https://github.com/juanpagp/Minocraft"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "company": "ENCASA",
+        "title": "Systems Developer",
+        "dateRange": "Jun 2024 – Aug 2024",
+        "bullets": [
+          "Continued developing an internal suite of tools for incident tracking, supplier communication, and quality-control workflows.",
+          "Integrated existing Excel-based data sources to keep business information consistent and accessible.",
+          "Built a local web application to generate and digitally sign PDF records for personal protective equipment (PPE) distribution."
+        ]
+      },
+      {
+        "company": "ENCASA",
+        "title": "Software Development Intern",
+        "dateRange": "May 2024 – Jun 2024",
+        "bullets": [
+          "Helped build an internal suite of three applications for incident reporting and supplier follow-up.",
+          "Connected the applications to existing company data and exposed selected information through a REST API.",
+          "Implemented features in response to feedback and changing workflow requirements."
+        ]
+      },
+      {
+        "company": "Vinilo Sevilla S.L.",
+        "title": "Networking Intern",
+        "dateRange": "May 2022 – Jul 2022",
+        "bullets": [
+          "Built the company's website using WordPress.",
+          "Maintained the company's local network infrastructure.",
+          "Developed small Python automation tools to support SEO and local search visibility."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "school": "Altair | Spain",
+        "degree": "Higher Vocational Qualification in Web Application Development (CFGS DAW)",
+        "dateRange": "2024–2026",
+        "achievements": [
+          "Completed with an average grade of 9.42/10.",
+          "Selected by instructors to mentor younger students with coursework and technical topics."
+        ]
+      },
+      {
+        "school": "Altair | Spain",
+        "degree": "Intermediate Vocational Qualification in Microcomputer Systems and Networks",
+        "dateRange": "2022–2024",
+        "achievements": [
+          "Graduated with an average grade of 9.2/10.",
+          "Served as delegate representing the school's vocational-training students."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  },
+  "notPublic": {
+    "title": "Project Details Unavailable",
+    "message": "This project contains proprietary company information and cannot be shared publicly. For a summary of the work and its technical scope, please refer to the description in the portfolio.",
+    "button": "Back to portfolio"
+  }
+}

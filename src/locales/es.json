@@ -1,0 +1,248 @@
+{
+  "site": {
+    "name": "Juanpa",
+    "title": "Desarrollador de software | Sistemas y herramientas para desarrolladores",
+    "description": "Desarrollador de software de Sevilla, España, centrado en programación de sistemas, herramientas para desarrolladores y software práctico.",
+    "seoTitle": "Juan Pablo Garrido | Desarrollador de software — Sistemas, C++ y Java",
+    "seoDescription": "Desarrollador de software de Sevilla, España, con experiencia profesional creando herramientas internas de negocio y proyectos personales en C++, Java, Python, compiladores y gráficos.",
+    "keywords": "desarrollador de software, programación de sistemas, C++, Java, Python, compilador, herramientas para desarrolladores, Sevilla, España",
+    "ogTitle": "Juanpa | Desarrollador de software",
+    "ogDescription": "Creando software práctico y explorando la programación de sistemas, compiladores, herramientas para desarrolladores y gráficos."
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "education": "Formación",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "whoami",
+    "greeting_emoji": "",
+    "intro": "Soy",
+    "title": "Software desde la capa de aplicación hasta la máquina."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "bio": "Soy desarrollador de software de Sevilla, España, con experiencia práctica creando software interno para empresas. Disfruto resolviendo problemas prácticos y explorando la programación de sistemas, los compiladores, las herramientas para desarrolladores, los gráficos y el desarrollo de motores de juegos. Actualmente busco un puesto de desarrollo de software, preferiblemente remoto, donde pueda contribuir a un equipo y seguir creciendo con trabajo de ingeniería real."
+  },
+  "skills_title": "Habilidades",
+  "skills": [
+    {
+      "name": "Inglés",
+      "experienceYears": " · C1"
+    },
+    {
+      "name": "C++",
+      "experienceYears": " · Proyectos personales"
+    },
+    {
+      "name": "Java",
+      "experienceYears": " · Más de 2 años"
+    },
+    {
+      "name": "Python",
+      "experienceYears": " · Más de 3 años"
+    },
+    {
+      "name": "C#",
+      "experienceYears": " · Más de 3 años"
+    },
+    {
+      "name": "Linux",
+      "experienceYears": " · Más de 3 años"
+    }
+  ],
+  "projects": {
+    "title": "Proyectos",
+    "items": [
+      {
+        "category": "Personal",
+        "status": "En desarrollo",
+        "name": "Nebula",
+        "description": "Un lenguaje experimental de programación de sistemas con tipado estático y un compilador escrito en Java. El proyecto explora el análisis sintáctico con ANTLR, el análisis semántico, las transformaciones del AST y la generación de código nativo mediante LLVM. Sus características y el análisis de gestión de memoria en tiempo de compilación siguen evolucionando, por lo que es un proyecto en curso y no un compilador listo para producción.",
+        "skills": [
+          "Java",
+          "LLVM",
+          "ANTLR",
+          "Diseño de compiladores"
+        ],
+        "link": "https://github.com/nebula-language/nebula"
+      },
+      {
+        "category": "Personal",
+        "status": "En desarrollo",
+        "name": "catlr",
+        "description": "Una utilidad de línea de comandos en C++17 para explorar y revisar bases de código. Muestra árboles de directorios y contenido de archivos, admite filtros de inclusión y exclusión, lee patrones de exclusión de .gitignore y puede recurrir a implementaciones nativas cuando las herramientas externas opcionales no están disponibles. Está diseñada para que la revisión del código y la inspección de proyectos sean menos ruidosas.",
+        "skills": [
+          "C++17",
+          "Sistema de archivos",
+          "Herramientas CLI"
+        ],
+        "link": "https://github.com/juanpagp/catlr"
+      },
+      {
+        "category": "Personal",
+        "status": "Experimental",
+        "name": "Arcane",
+        "description": "Un motor 3D experimental creado en Java con LWJGL. Incluye componentes de motor para renderizado, mallas, materiales, texturas, escenas, entrada y una arquitectura de entidades y componentes. El proyecto explora los gráficos en tiempo real y la estructura de un motor de juegos.",
+        "skills": [
+          "Java",
+          "OpenGL",
+          "LWJGL",
+          "GLSL"
+        ],
+        "link": "https://github.com/juanpagp/Arcane"
+      },
+      {
+        "category": "Profesional",
+        "status": "Completado",
+        "name": "ENCASA App Suite",
+        "description": "Una suite de tres aplicaciones internas desarrolladas para gestionar incidencias, hacer seguimiento de proveedores y apoyar los flujos de control de calidad. Las herramientas integraban datos existentes de la empresa en Excel y exponían información seleccionada mediante una API REST. El código fuente es privado porque está relacionado con sistemas internos de la empresa.",
+        "skills": [
+          "PHP",
+          "AutoHotkey",
+          "VBA",
+          "API REST"
+        ],
+        "link": "NotPublic"
+      },
+      {
+        "category": "Profesional",
+        "status": "Completado",
+        "name": "Automatización de distribución de EPI",
+        "description": "Una aplicación web local creada para agilizar la distribución de equipos de protección individual (EPI). Genera registros PDF y los firma digitalmente, reduciendo pasos manuales en un proceso interno de negocio. El código fuente es privado porque está relacionado con flujos de trabajo de la empresa.",
+        "skills": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "PHP",
+          "Generación de PDF"
+        ],
+        "link": "NotPublic"
+      },
+      {
+        "category": "Personal",
+        "status": "Completado",
+        "name": "CRIS",
+        "description": "Una herramienta en Python que incrusta archivos en imágenes PNG y permite extraerlos después. Utiliza RSA para proteger la semilla empleada para mezclar la ubicación de los datos. El proyecto explora la esteganografía y la criptografía y está pensado para aprender, no para ofrecer seguridad de nivel productivo.",
+        "skills": [
+          "Python",
+          "Criptografía",
+          "Esteganografía"
+        ],
+        "link": "https://github.com/juanpagp/CRIS"
+      },
+      {
+        "category": "Personal",
+        "status": "Experimental",
+        "name": "Minocraft",
+        "description": "Un proyecto de vóxeles inspirado en Minecraft, desarrollado en Java con LWJGL. Explora un mundo basado en bloques, el renderizado y las mecánicas del bucle principal del juego.",
+        "skills": [
+          "Java",
+          "OpenGL",
+          "LWJGL"
+        ],
+        "link": "https://github.com/juanpagp/Minocraft"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experiencia",
+    "items": [
+      {
+        "company": "ENCASA",
+        "title": "Desarrollador de sistemas",
+        "dateRange": "jun. 2024 – ago. 2024",
+        "bullets": [
+          "Continué desarrollando una suite interna de herramientas para el seguimiento de incidencias, la comunicación con proveedores y los flujos de control de calidad.",
+          "Integré fuentes de datos existentes en Excel para mantener la información empresarial coherente y accesible.",
+          "Creé una aplicación web local para generar y firmar digitalmente registros PDF de distribución de equipos de protección individual (EPI)."
+        ]
+      },
+      {
+        "company": "ENCASA",
+        "title": "Becario de desarrollo de software",
+        "dateRange": "may. 2024 – jun. 2024",
+        "bullets": [
+          "Colaboré en la creación de una suite interna de tres aplicaciones para informar de incidencias y hacer seguimiento de proveedores.",
+          "Conecté las aplicaciones con los datos existentes de la empresa y expuse información seleccionada mediante una API REST.",
+          "Implementé funcionalidades en respuesta a los comentarios recibidos y a los cambios en los requisitos de los flujos de trabajo."
+        ]
+      },
+      {
+        "company": "Vinilo Sevilla S.L.",
+        "title": "Becario de redes",
+        "dateRange": "may. 2022 – jul. 2022",
+        "bullets": [
+          "Creé el sitio web de la empresa con WordPress.",
+          "Mantuve la infraestructura de red local de la empresa.",
+          "Desarrollé pequeñas herramientas de automatización en Python para apoyar el SEO y la visibilidad en búsquedas locales."
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Formación",
+    "items": [
+      {
+        "school": "Altair | España",
+        "degree": "Título de Técnico Superior en Desarrollo de Aplicaciones Web (CFGS DAW)",
+        "dateRange": "2024–2026",
+        "achievements": [
+          "Finalicé los estudios con una nota media de 9,42/10.",
+          "El profesorado me seleccionó para orientar a estudiantes de cursos inferiores en sus tareas y temas técnicos."
+        ]
+      },
+      {
+        "school": "Altair | España",
+        "degree": "Título de Técnico en Sistemas Microinformáticos y Redes",
+        "dateRange": "2022–2024",
+        "achievements": [
+          "Me gradué con una nota media de 9,2/10.",
+          "Fui delegado y representante del alumnado de formación profesional del centro."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados."
+  },
+  "notPublic": {
+    "title": "Detalles del proyecto no disponibles",
+    "message": "Este proyecto contiene información empresarial propietaria que no se puede compartir públicamente. Para consultar un resumen del trabajo y su alcance técnico, revisa la descripción incluida en el portfolio.",
+    "button": "Volver al portfolio"
+  },
+  "ui": {
+    "skipToContent": "Saltar al contenido",
+    "home": "Juanpa, volver arriba",
+    "navLabel": "Navegación principal",
+    "languageLabel": "Idioma",
+    "prompt": "quién soy",
+    "profileTitle": "system.profile",
+    "role": "rol",
+    "location": "ubicación",
+    "focus": "enfoque",
+    "languages": "idiomas",
+    "profileRole": "Desarrollador de software",
+    "profileLocation": "Sevilla, España",
+    "profileFocus": "Sistemas · Herramientas para desarrolladores",
+    "profileLanguages": "ES nativo · EN C1",
+    "selectedWork": "trabajo seleccionado",
+    "personalWork": "Proyectos personales",
+    "professionalWork": "Trabajo profesional",
+    "viewSource": "Ver código",
+    "moreDetails": "Detalle técnico",
+    "privateProject": "PROYECTO PRIVADO",
+    "contactTitle": "Hablemos.",
+    "contactText": "Estoy abierto a puestos de desarrollo de software, preferiblemente en remoto. La forma más rápida de ver cómo trabajo es explorar el código en GitHub.",
+    "githubProfile": "Perfil de GitHub",
+    "top": "↑ arriba",
+    "projectCategory": "categoría",
+    "projectStatus": "estado",
+    "technologies": "tecnologías",
+    "projectMetaTitle": "proyecto.meta",
+    "projectTechnologies": "tecnologías"
+  }
+}
