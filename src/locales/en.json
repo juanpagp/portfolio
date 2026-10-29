@@ -4,7 +4,7 @@
     "title": "Software Developer | Systems & Developer Tools",
     "description": "Software developer from Seville, Spain, focused on systems programming, developer tools, and practical software.",
     "seoTitle": "Juan Pablo Garrido | Software Developer — Systems, C++ & Java",
-    "seoDescription": "Software developer from Seville, Spain, with professional experience building internal business tools and personal projects in C++, Java, Python, compilers, and graphics.",
+    "seoDescription": "Spanish software developer from Seville, with professional experience building internal business tools and applications, and personal projects in C++, Java, Python and experiments with compilers, and computer graphics.",
     "keywords": "software developer, systems programming, C++, Java, Python, compiler, developer tools, Seville, Spain",
     "ogTitle": "Juanpa | Software Developer",
     "ogDescription": "Building practical software and exploring systems programming, compilers, developer tools, and graphics."
@@ -21,11 +21,11 @@
     "greeting": "whoami",
     "greeting_emoji": "",
     "intro": "I'm",
-    "title": "Building software from the application layer down to the machine."
+    "title": "I like understanding how things work under the hood"
   },
   "about": {
     "title": "About Me",
-    "bio": "I'm a software developer from Seville, Spain, with hands-on experience building internal business software. I enjoy solving practical problems and exploring systems programming, compilers, developer tools, graphics, and game-engine development. I'm currently looking for a software development role, preferably remote, where I can contribute to a team and keep growing through real engineering work."  },
+    "bio": "I'm a Spanish software developer from Seville, with hands-on experience building internal business software. I enjoy solving practical problems and exploring systems programming, compilers, developer tools, graphics, and game-engine development. I'm currently looking for a software development role, preferably remote, where I can contribute to a team and keep growing through real engineering work."  },
   "skills_title": "Skills",
   "skills": [
     {
@@ -58,7 +58,7 @@
     "items": [
       {
         "category": "Personal",
-        "status": "In development",
+        "status": "Experimental",
         "name": "Nebula",
         "description": "An experimental statically typed systems programming language with a compiler written in Java. The project explores parsing with ANTLR, semantic analysis, AST transformations, and LLVM-based native code generation. Its language features and compile-time memory-management analysis are still evolving, so it is an ongoing project rather than a production-ready compiler.",
         "skills": [
@@ -71,7 +71,7 @@
       },
       {
         "category": "Personal",
-        "status": "In development",
+        "status": "Completed",
         "name": "catlr",
         "description": "A C++17 command-line utility for exploring and reviewing codebases. It prints directory trees and file contents, supports include and exclude filters, reads .gitignore exclusion patterns, and can fall back to native implementations when optional external tools are unavailable. Built to make code review and project inspection less noisy.",
         "skills": [
@@ -153,7 +153,7 @@
       {
         "company": "ENCASA",
         "title": "Systems Developer",
-        "dateRange": "Jun 2024 – Aug 2024",
+        "dateRange": "Jun 2024 - Aug 2024",
         "bullets": [
           "Continued developing an internal suite of tools for incident tracking, supplier communication, and quality-control workflows.",
           "Integrated existing Excel-based data sources to keep business information consistent and accessible.",
@@ -163,7 +163,7 @@
       {
         "company": "ENCASA",
         "title": "Software Development Intern",
-        "dateRange": "May 2024 – Jun 2024",
+        "dateRange": "May 2024 - Jun 2024",
         "bullets": [
           "Helped build an internal suite of three applications for incident reporting and supplier follow-up.",
           "Connected the applications to existing company data and exposed selected information through a REST API.",
@@ -173,7 +173,7 @@
       {
         "company": "Vinilo Sevilla S.L.",
         "title": "Networking Intern",
-        "dateRange": "May 2022 – Jul 2022",
+        "dateRange": "May 2022 - Jul 2022",
         "bullets": [
           "Built the company's website using WordPress.",
           "Maintained the company's local network infrastructure.",
@@ -188,7 +188,7 @@
       {
         "school": "Altair | Spain",
         "degree": "Higher Vocational Qualification in Web Application Development (CFGS DAW)",
-        "dateRange": "2024–2026",
+        "dateRange": "2024-2026",
         "achievements": [
           "Completed with an average grade of 9.42/10.",
           "Selected by instructors to mentor younger students with coursework and technical topics."
@@ -197,7 +197,7 @@
       {
         "school": "Altair | Spain",
         "degree": "Intermediate Vocational Qualification in Microcomputer Systems and Networks",
-        "dateRange": "2022–2024",
+        "dateRange": "2022-2024",
         "achievements": [
           "Graduated with an average grade of 9.2/10.",
           "Served as delegate representing the school's vocational-training students."
@@ -212,5 +212,43 @@
     "title": "Project Details Unavailable",
     "message": "This project contains proprietary company information and cannot be shared publicly. For a summary of the work and its technical scope, please refer to the description in the portfolio.",
     "button": "Back to portfolio"
+  },
+  "ui": {
+    "skipToContent": "Skip to content",
+    "home": "Juanpa, back to top",
+    "navLabel": "Main navigation",
+    "languageLabel": "Language",
+    "prompt": "whoami",
+    "profileTitle": "system.profile",
+    "role": "role",
+    "location": "based",
+    "interests": "interests",
+    "languages": "languages",
+    "profileRole": "Junior developer",
+    "profileLocation": "Spain",
+    "profileInterests": "Compilers - Graphics",
+    "profileLanguages": "EN C1 - ES native",
+    "selectedWork": "selected work",
+    "personalWork": "Personal engineering",
+    "professionalWork": "Professional work",
+    "viewSource": "View source",
+    "moreDetails": "Technical detail",
+    "privateProject": "PRIVATE PROJECT",
+    "contactTitle": "Let's talk.",
+    "contactText": "I'm open to software development roles, preferably remote. The quickest way to see how I work is to explore the code on GitHub.",
+    "githubProfile": "GitHub profile",
+    "top": "↑ top",
+    "projectCategory": "category",
+    "projectStatus": "status",
+    "technologies": "technologies",
+    "projectMetaTitle": "project.meta",
+    "projectTechnologies": "technologies",
+    "stack": "stack",
+    "profileStack": "Java - C/C++ - Web",
+    "terminalLabel": "Terminal window running hero.sh: whoami output on the left, myfetch system profile on the right",
+    "paneWhoami": "whoami",
+    "paneMyfetch": "myfetch",
+    "hostName": "juanpa@arch",
+    "scriptName": "hero.sh"
   }
 }

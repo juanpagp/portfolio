@@ -1,14 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import en from "./locales/en.json";
 import es from "./locales/es.json";
-import esUi from "./locales/ui-es.json";
-import enUi from "./locales/ui-en.json";
 
-
-const translations = {
-  en: { ...en, ui: { ...enUi, ...(en.ui ?? {}) } },
-  es: { ...es, ui: { ...esUi, ...(es.ui ?? {}) } },
-};
+const translations = { en, es };
 const supportedLanguages = Object.keys(translations);
 const GITHUB_PROFILE = "https://github.com/juanpagp";
 const LANGUAGE_STORAGE_KEY = "juanpa-language";
@@ -94,7 +88,11 @@ function ProjectDetails({ project, t }) {
   return (
     <details>
       <summary>{t.ui.moreDetails}</summary>
-      <p>{project.description}</p>
+      <dl className="goals">
+        <div><dt>{t.ui.projectCategory}</dt><dd>{project.category}</dd></div>
+        <div><dt>{t.ui.projectStatus}</dt><dd>{project.status}</dd></div>
+        <div><dt>{t.ui.technologies}</dt><dd>{project.skills.join(" - ")}</dd></div>
+      </dl>
     </details>
   );
 }
@@ -106,7 +104,6 @@ function ProjectCard({ project, t }) {
       <h3 className="project-name">{project.name}</h3>
       <p>{project.description}</p>
       <ProjectDetails project={project} t={t} />
-      <Tags items={project.skills} label={`${project.name} ${t.ui.projectTechnologies}`} />
       {project.link === "NotPublic" ? <PrivateNotice t={t} /> : <RepositoryLink project={project} text={t.ui.viewSource} />}
     </article>
   );
@@ -122,7 +119,6 @@ function ProjectRow({ project, index, t }) {
       </div>
       <div>
         <p>{project.description}</p>
-        <ProjectDetails project={project} t={t} />
         {project.link === "NotPublic" ? <PrivateNotice t={t} /> : null}
       </div>
       <div>
@@ -134,7 +130,8 @@ function ProjectRow({ project, index, t }) {
 }
 
 
-const ASCII_LOGO = String.raw
+const ASCII_LOGO = ""
+/* String.raw
 `      _----------_,
     ,"__         _-:, 
    /    ""--_--""...:\
@@ -147,17 +144,105 @@ const ASCII_LOGO = String.raw
   \   \           /;;;;
    '.  \         /;;;'
      "-_\_______/;;'
-`;
+`;*/
 
 
 const SCRIPT_LINES = ["#!/bin/sh", "whoami", "myfetch"];
+
+const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+const DITHER_SCALE = 3; // css px per dither pixel, higher = chunkier
+
+function DitherBlob() {
+  const wrapRef = useRef(null);
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // read the accent colour from CSS so it always matches the theme
+    const acc = getComputedStyle(document.documentElement).getPropertyValue("--acc").trim() || "#7ee2b8";
+    const hex = acc.replace("#", "");
+    const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16));
+
+    let w = 0, h = 0, img = null, raf = 0, visible = true, last = 0;
+
+    function resize() {
+      const rect = wrap.getBoundingClientRect();
+      w = Math.max(1, Math.ceil(rect.width / DITHER_SCALE));
+      h = Math.max(1, Math.ceil(rect.height / DITHER_SCALE));
+      canvas.width = w;
+      canvas.height = h;
+      img = ctx.createImageData(w, h);
+      draw(performance.now());
+    }
+
+    function draw(now) {
+      const t = now * 0.00035;
+      const data = img.data;
+      const k = 3.2 / h;
+      for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          let u = x * k, v = y * k;
+          // domain warp -> organic, blobby motion
+          const u2 = u + 0.6 * Math.sin(v * 1.3 + t * 2);
+          const v2 = v + 0.6 * Math.cos(u * 1.1 - t * 1.7);
+          const f =
+            Math.sin(u2 * 1.7 + t * 1.5) +
+            Math.sin(v2 * 1.9 - t * 1.2) +
+            Math.sin((u2 + v2) * 1.1 + t) +
+            Math.sin(Math.hypot(u2 - 2, v2 - 1.5) * 2.2 - t * 2);
+          let val = (f / 4) * 0.5 + 0.5;
+          val = val * val * (3 - 2 * val); // smoothstep for more contrast
+          const threshold = (BAYER[(y & 3) * 4 + (x & 3)] + 0.5) / 16;
+
+          const i = (y * w + x) * 4;
+          const on = val > threshold;
+          data[i] = r;
+          data[i + 1] = g;
+          data[i + 2] = b;
+          data[i + 3] = on ? 235 : 0;
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+
+    function loop(now) {
+      raf = requestAnimationFrame(loop);
+      if (!visible || now - last < 33) return; // ~30fps cap
+      last = now;
+      draw(now);
+    }
+
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(wrap);
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; });
+    io.observe(wrap);
+    if (!reduceMotion) raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      io.disconnect();
+    };
+  }, []);
+
+  return (
+    <div ref={wrapRef} className="dither" aria-hidden="true">
+      <canvas ref={canvasRef} />
+    </div>
+  );
+}
 
 function Hero({ t }) {
   const rows = [
     ["role", t.ui.profileRole, t.ui.role],
     ["based", t.ui.profileLocation, t.ui.location],
     ["stack", t.ui.profileStack, t.ui.stack],
-    ["focus", t.ui.profileFocus, t.ui.focus],
+    ["interests", t.ui.profileInterests, t.ui.interests],
     ["languages", t.ui.profileLanguages, t.ui.languages],
   ];
   return (
@@ -175,7 +260,7 @@ function Hero({ t }) {
         <div className="panes">
           <section className="pane pane-who" aria-labelledby="hero-title">
             <p className="pane-t" aria-hidden="true">{t.ui.paneWhoami}</p>
-            <p className="intro"><span aria-hidden="true">▸ </span>{t.hero.intro} {t.site.name}.</p>
+            <p className="intro"><span aria-hidden="true" className="nf fontBigger">▹</span>{t.hero.intro} {t.site.name}</p>
             <h1 id="hero-title">{t.hero.title}</h1>
             <p className="lede">{t.site.seoDescription}</p>
             <div className="cta">
@@ -183,18 +268,22 @@ function Hero({ t }) {
               <a className="btn s" href="#contact">{t.nav.contact}</a>
             </div>
           </section>
-          <section className="pane pane-fetch" aria-label={t.ui.profileTitle}>
-            <p className="pane-t" aria-hidden="true">{t.ui.paneMyfetch}</p>
-            <pre className="ascii" aria-hidden="true">{ASCII_LOGO}</pre>
-            <p className="host"><b>juanpa</b><span aria-hidden="true">@</span><b>arch</b></p>
-            <p className="sys-t">{t.ui.profileTitle}</p>
-            <dl className="sys">
-              {rows.map(([key, value, label]) => (
-                <div key={key}><dt>{label}</dt><dd>{value}</dd></div>
-              ))}
-            </dl>
-            <div className="swatches" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-          </section>
+          <div className="stack">
+            <section className="pane pane-fetch" aria-label={t.ui.profileTitle}>
+              <p className="pane-t" aria-hidden="true">{t.ui.paneMyfetch}</p>
+              <p className="host"><b>juanpa</b><span aria-hidden="true">@</span><b>arch</b></p>
+              <p className="sys-t">{t.ui.profileTitle}</p>
+              <dl className="sys">
+                {rows.map(([key, value, label]) => (
+                  <div key={key}><dt>{label}</dt><dd>{value}</dd></div>
+                ))}
+              </dl>
+              <div className="swatches" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+            </section>
+            <section className="pane pane-blob" aria-hidden="true">
+              <DitherBlob />
+            </section>
+          </div>
         </div>
       </div>
     </div>
@@ -287,7 +376,6 @@ function App() {
                 <h3>{featuredProject.name}</h3>
                 <p className="tag">{featuredDescription.lead}</p>
                 <p>{featuredDescription.remainder}</p>
-                <Tags items={featuredProject.skills} label={`${featuredProject.name} technologies`} />
                 <RepositoryLink project={featuredProject} text={t.ui.viewSource} />
               </div>
               <div style={{ alignSelf: "end" }}>
@@ -295,7 +383,7 @@ function App() {
                 <dl className="goals">
                   <div><dt>{t.ui.projectCategory}</dt><dd>{featuredProject.category}</dd></div>
                   <div><dt>{t.ui.projectStatus}</dt><dd>{featuredProject.status}</dd></div>
-                  <div><dt>{t.ui.technologies}</dt><dd>{featuredProject.skills.join("")}</dd></div>
+                  <div><dt>{t.ui.technologies}</dt><dd>{featuredProject.skills.join(" - ")}</dd></div>
                 </dl>
               </div>
             </article>

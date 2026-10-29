@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url("https://mshaugh.github.io/nerdfont-webfonts/build/jetbrainsmono.css");
+
+.nf {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+}
 
 :root {
 
@@ -152,6 +156,11 @@ nav a:hover {
   color: var(--ink)
 }
 
+.fontBigger {
+  font-size: 28px;
+  margin-top: -12px;
+}
+
 /* hero */
 
 .stage {
@@ -163,10 +172,16 @@ nav a:hover {
   isolation: isolate;
   overflow: hidden;
 
-  background-image: url("wallpaper.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+background-image:
+  linear-gradient(
+    rgba(13, 14, 13, 0.36),
+    rgba(13, 14, 13, 0.36)
+  ),
+  url("wallpaper.jpg");
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
 }
 
 .kitty {
@@ -273,8 +288,38 @@ html::-webkit-scrollbar-thumb {
   position: relative
 }
 
+.stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-left: 1px solid rgba(126, 226, 184, .4);
+}
+
 .pane-fetch {
-  border-left: 1px solid rgba(126, 226, 184, .4)
+  flex: 0 0 auto;
+}
+
+.pane-blob {
+  flex: 1 1 auto;
+  min-height: 160px;
+  padding: 0;
+  border-top: 1px solid rgba(126, 226, 184, .4);
+  overflow: hidden;
+}
+
+.dither {
+  position: absolute;
+  inset: 0;
+}
+
+.dither canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  /* fade the edges so the blob dissolves into the glass */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
 }
 
 .pane-t {
@@ -438,9 +483,13 @@ html::-webkit-scrollbar-thumb {
     grid-template-columns: 1fr
   }
 
-  .pane-fetch {
+  .stack {
     border-left: 0;
-    border-top: 1px solid rgba(126, 226, 184, .4)
+    border-top: 1px solid rgba(126, 226, 184, .4);
+  }
+
+  .pane-blob {
+    min-height: 200px;
   }
 
   .pane-who h1 {
@@ -465,16 +514,14 @@ html::-webkit-scrollbar-thumb {
 /* sections */
 
 section {
-  padding-block: clamp(72px, 11vw, 160px) 0
+  padding-block: clamp(72px, 0px, 160px) 0
 }
 
 .sh {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin: 0 0 clamp(32px, 5vw, 64px);
-  border-top: 1px solid var(--line);
-  padding-top: 16px
+  margin: 0 0 clamp(32px, 5vw, 18px)
 }
 
 .sh h2 {
@@ -530,7 +577,7 @@ h3 {
   text-decoration: underline;
   text-underline-offset: 5px;
   text-decoration-color: var(--line);
-  transition: var(--ease)
+  transition: var(--ease);
 }
 
 .lnk:hover {
@@ -739,13 +786,12 @@ details p {
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border-top: 1px solid var(--line)
 }
 
 .skills div {
   padding: 20px 16px 20px 0;
-  border-bottom: 1px solid var(--line)
 }
 
 .skills dt {
